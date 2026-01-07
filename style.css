@@ -7,11 +7,24 @@ html, body {
 #canvasContainer {
   display: flex;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
   height: 100vh;
 }
 
 canvas {
   display: block;
   background-color: black;
+}
+
+header{
+  text-align: center;
+  color: black;
+}
+
+h1{
+  border: 0.5rem outset black;
+  outline: 0.5rem solid whitesmoke;
+  background-color: cadetblue;
+  /* box-shadow: 0 0 0 2rem cadetblue; */
+  border-radius: 12px;
 }
