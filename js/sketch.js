@@ -1,3 +1,5 @@
+let newSun = new Sun();
+let newPlanet = new Planet();
 //=========Global Variables=========\\
 //Creates the variables that will hold X and Y of the mouse
 let xPos = 0;
@@ -41,38 +43,16 @@ function draw() {
   // background(255);
   //Sets the origin to the center of the canvas and rotates the canvas -90 degrees
   translate(width / 2, height / 2);
-  rotate(-90);
+  rotate(180);
   //Sets the stroke to black with a weight of 0.5
   strokeWeight(0.5);
   //Calls the function to create the sun
-  createSun();
+  newSun.draw();
   //Calls the function to create the planet
-  createPlanet();
+  newPlanet.draw();
 }
 //=========FUNCTIONS=========\\
-/**
- * Creates a sun at the center of the canvas.
- */
-function createSun() {
-  let g = map(xPos, 0, 600, 129, 231, true);
-  let r = map(yPos, 0, 600, 200, 230, true);
-  fill(255, g, 0);
-  circle(0, 0, radius);
-}
-/**
- * Creates a planet that orbits around the sun.
- */
-function createPlanet() {
-  let orbitRadius = 80;
-  let x = sin(theta) * orbitRadius;
-  let y = cos(theta) * orbitRadius;
-  theta += 1;
-  fill(100, 150, 250);
-  circle(x, y, 40);
-  noFill();
-  strokeWeight(5);
-  circle(0, 0, orbitRadius * 2);
-}
+
 /**
  * Logs the mouse coordinates to the console when the mouse is clicked.
  * For debugging purposes.
