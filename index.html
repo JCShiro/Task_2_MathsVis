@@ -8,6 +8,8 @@
 
     <link rel="stylesheet" type="text/css" href="style.css" />
 
+    <script src="js/planets.js"></script>
+
     <script src="libraries/p5.min.js"></script>
     <script src="libraries/p5.sound.min.js"></script>
   </head>
@@ -16,8 +18,25 @@
     <header>
       <h1>Planetary Chart Maker</h1>
     </header>
-    <article id="canvasContainer">
-      <script src="sketch.js"></script>
-    </article>
+    <div id="container">
+      <article id="create_panel">
+        <input type="button" id="create_button" value="Create New Planet" />
+        <label for="radius_slider">Size</label>
+        <input type="range" id="radius_slider" min="10" max="100" value="10" step="1" />
+        <label for="orbital_slider">Orbital Radius</label>
+        <input type="range" id="orbital_slider" min="50" max="300" value="150" step="1" />
+        <select id="environment">
+          <option value="">--Please choose an option--</option>
+          <option value="desert">Desert</option>
+          <option value="forest">Forest</option>
+          <option value="ice">Ice</option>
+          <option value="ocean">Ocean</option>
+          <option value="volcanic">Volcanic</option>
+        </select>
+      </article>
+    <div id="canvasContainer">
+      <script src="js/sketch.js" defer></script>
+    </div>
+    </div>
   </body>
 </html>

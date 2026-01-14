@@ -54,9 +54,9 @@ function draw() {
  * Creates a sun at the center of the canvas.
  */
 function createSun() {
-  let g = map(xPos, 0, 600, 30, 125, true);
+  let g = map(xPos, 0, 600, 129, 231, true);
   let r = map(yPos, 0, 600, 200, 230, true);
-  fill(r, g, 50);
+  fill(255, g, 0);
   circle(0, 0, radius);
 }
 /**
@@ -77,7 +77,7 @@ function createPlanet() {
  * Logs the mouse coordinates to the console when the mouse is clicked.
  * For debugging purposes.
  */
-mouseClicked = () => {
-  console.log(`Mouse X: ${mouseX.toFixed(3)}
-Mouse Y: ${mouseY.toFixed(3)}`);
-};
+// mouseClicked = () => {
+//   console.log(`Mouse X: ${mouseX.toFixed(3)}
+// Mouse Y: ${mouseY.toFixed(3)}`);
+// };
