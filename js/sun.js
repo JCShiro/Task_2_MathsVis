@@ -11,4 +11,3 @@ class Sun {
     // console.log("Sun Created") //console log for debugging
   }
 }
-

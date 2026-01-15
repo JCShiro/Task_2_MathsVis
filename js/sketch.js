@@ -43,7 +43,7 @@ function draw() {
   // background(255);
   //Sets the origin to the center of the canvas and rotates the canvas -90 degrees
   translate(width / 2, height / 2);
-  rotate(180);
+  rotate(-90);
   //Sets the stroke to black with a weight of 0.5
   strokeWeight(0.5);
   //Calls the function to create the sun
