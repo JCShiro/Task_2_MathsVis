@@ -1,15 +1,25 @@
 let newSun = new Sun();
 let newPlanet = new Planet();
+
 //=========Global Variables=========\\
 //Creates the variables that will hold X and Y of the mouse
 let xPos = 0;
 let yPos = 0;
 //Variable for angles for rotations
-let theta = 0;
-//radius of the sun
-let radius = 60;
+
+let previewBtn = document.getElementById("preview_button");
+let radiusSlider = document.getElementById("radius_slider");
+let orbitalSlider = document.getElementById("orbital_slider");
+let spinDirection = document.getElementById("rotate_direction");
+let environmentSelect = document.getElementById("environment");
+let createBtn = document.getElementById("create_button");
+let preview = false;
+//=====Event Listeners=====\\
+previewBtn.addEventListener("click", createPreviewBtn);
 
 let planets = [];
+let previewArray = [];
+
 //=========MAIN CODE=========\\
 /**
  * Preloads external files before the program starts.
@@ -50,6 +60,16 @@ function draw() {
   newSun.draw();
   //Calls the function to create the planet
   newPlanet.draw();
+  // for (let planet of planets) {
+  //  planet.draw(); plaent.move(); planet.update();
+  //}
+
+  if (preview === true) {
+    createPreview();
+  } else {
+    preview = false;
+    previewBtn.value = "Preview New Planet";
+  }
 }
 //=========FUNCTIONS=========\\
 
@@ -57,7 +77,46 @@ function draw() {
  * Logs the mouse coordinates to the console when the mouse is clicked.
  * For debugging purposes.
  */
-// mouseClicked = () => {
+mouseClicked = () => {
 //   console.log(`Mouse X: ${mouseX.toFixed(3)}
 // Mouse Y: ${mouseY.toFixed(3)}`);
-// };
+console.log(previewArray);
+};
+
+// on click what you want to do is:
+// let newPlanet = new Planet();
+// planets.push(newPlanet);
+
+function createPreviewBtn() {
+  if (preview == false) {
+    preview = !preview;
+  } else {
+    preview = !preview;
+  }
+}
+
+function createPreview() {
+  previewBtn.value = "Exit Preview";
+  // console.log("Running"); //Console for debugging
+  let orbitRadius = orbitalSlider.value;
+  let radius = radiusSlider.value;
+  let direction = spinDirection.value;
+  let planetColorRed;
+  let planetColorGreen;
+  let planetColorBlue;
+  for (let e of environments) {
+    if (environmentSelect.value == e[0]) {
+      e[(1, 2, 3)]; // colour
+      planetColorRed = e[1];
+      planetColorGreen = e[2];
+      planetColorBlue = e[3];
+    }
+  }
+
+  fill(planetColorRed, planetColorGreen, planetColorBlue, 200);
+  circle(orbitRadius, 0, radius);
+
+  previewArray.push(orbitRadius, radius, direction, planetColorRed, planetColorGreen, planetColorBlue)
+
+  // console.log(orbitRadius, radius, direction, planetColorRed,planetColorGreen,planetColorBlue)
+}

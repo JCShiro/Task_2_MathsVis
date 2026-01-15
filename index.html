@@ -21,11 +21,13 @@
     </header>
     <div id="container">
       <article id="create_panel">
-        <input type="button" id="create_button" value="Create New Planet" />
+        <h3>Create A New Planet</h3>
+        <input type="button" id="preview_button" value="Preview New Planet" />
         <label for="radius_slider">Size</label>
         <input
           type="range"
           id="radius_slider"
+          class="slider"
           min="10"
           max="100"
           value="10"
@@ -35,11 +37,18 @@
         <input
           type="range"
           id="orbital_slider"
+          class="slider"
           min="50"
           max="300"
-          value="150"
+          value="0"
           step="1"
         />
+        <label for="rotate_direction">Rotate Direction</label>
+        <select id="rotate_direction">
+          <option value="">--Please Choose an option--</option>
+          <option value="left">Left</option>
+          <option value="right">Right</option>
+        </select>
         <select id="environment">
           <option value="">--Please choose an option--</option>
           <option value="desert">Desert</option>
@@ -48,6 +57,7 @@
           <option value="ocean">Ocean</option>
           <option value="volcanic">Volcanic</option>
         </select>
+        <input type="button" id="create_button" value="Create New Planet" />
       </article>
       <div id="canvasContainer">
         <script src="js/sketch.js" defer></script>
