@@ -1,5 +1,7 @@
 let newSun = new Sun();
-let newPlanet = new Planet();
+
+// let planet = new Planet
+// let newPlanet = new Planet();
 
 //=========Global Variables=========\\
 //Creates the variables that will hold X and Y of the mouse
@@ -16,8 +18,8 @@ let createBtn = document.getElementById("create_button");
 let preview = false;
 //=====Event Listeners=====\\
 previewBtn.addEventListener("click", createPreviewBtn);
+createBtn.addEventListener("click", storePlanet);
 
-let planets = [];
 let previewArray = [];
 
 //=========MAIN CODE=========\\
@@ -59,7 +61,7 @@ function draw() {
   //Calls the function to create the sun
   newSun.draw();
   //Calls the function to create the planet
-  newPlanet.draw();
+  // planet.draw();
   // for (let planet of planets) {
   //  planet.draw(); plaent.move(); planet.update();
   //}
@@ -116,7 +118,10 @@ function createPreview() {
   fill(planetColorRed, planetColorGreen, planetColorBlue, 200);
   circle(orbitRadius, 0, radius);
 
-  previewArray.push(orbitRadius, radius, direction, planetColorRed, planetColorGreen, planetColorBlue)
-
   // console.log(orbitRadius, radius, direction, planetColorRed,planetColorGreen,planetColorBlue)
+}
+
+function storePlanet(){
+  let newPlanet = new Planet()//, orbitRadius, radius, direction, planetColorRed, planetColorGreen, planetColorBlue, theta);
+  Planet.planetsArray.push(Planet);
 }

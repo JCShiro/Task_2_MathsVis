@@ -10,6 +10,7 @@ let environments = [
 // let theta = 0;
 
 class Planet {
+  planetsArray = [];
   draw() {
     this.#createExamplePlanet();
   }
