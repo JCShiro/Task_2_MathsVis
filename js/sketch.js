@@ -1,4 +1,5 @@
 let newSun = new Sun();
+let newPlanet = new Planet();
 
 // let planet = new Planet
 // let newPlanet = new Planet();
@@ -61,7 +62,7 @@ function draw() {
   //Calls the function to create the sun
   newSun.draw();
   //Calls the function to create the planet
-  // planet.draw();
+  newPlanet.draw();
   // for (let planet of planets) {
   //  planet.draw(); plaent.move(); planet.update();
   //}

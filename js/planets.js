@@ -8,14 +8,13 @@ let environments = [
 ];
 
 // let theta = 0;
-
+planetsArray = [];
 class Planet {
-  planetsArray = [];
   draw() {
     this.#createExamplePlanet();
   }
 
-  #theta = 0
+  #theta = 0;
   #createExamplePlanet() {
     let orbitRadius = 80;
     let x = cos(this.#theta) * orbitRadius;
