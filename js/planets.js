@@ -9,22 +9,40 @@ let environments = [
 
 // let theta = 0;
 planetsArray = [];
+
 class Planet {
   draw() {
     this.#createExamplePlanet();
+    this.#drawPlanet();
   }
 
-  #theta = 0;
   #createExamplePlanet() {
+    let theta;
     let orbitRadius = 80;
-    let x = cos(this.#theta) * orbitRadius;
-    let y = sin(this.#theta) * orbitRadius;
-    this.#theta += 1;
+    let x = cos(theta) * orbitRadius;
+    let y = sin(theta) * orbitRadius;
+    theta += 1;
     // console.log(theta);
     fill(100, 150, 250);
     circle(x, y, 40);
     noFill();
     strokeWeight(5);
     circle(0, 0, orbitRadius * 2);
+  }
+
+  #drawPlanet() {
+    for (let i = 0; i < planetsArray.length; i++) {
+      let theta;
+      let x = cos(theta) * planetsArray[i].orbitRadius;
+      let y = sin(theta) * planetsArray[i].orbitRadius;
+      if(planetsArray[i].direction == "right"){
+        theta +=1;
+      }else{
+        theta -=1;
+      }
+      console.log(planetsArray[i]);
+      fill(planetsArray[i].planetColorRed, planetsArray[i].planetColorGreen, planetsArray[i].planetColorBlue);
+      circle(x,y,planetsArray[i].radius)
+    }
   }
 }

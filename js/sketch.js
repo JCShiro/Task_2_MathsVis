@@ -1,5 +1,5 @@
 let newSun = new Sun();
-let newPlanet = new Planet();
+let setupPlanet = new Planet();
 
 // let planet = new Planet
 // let newPlanet = new Planet();
@@ -21,6 +21,14 @@ let preview = false;
 previewBtn.addEventListener("click", createPreviewBtn);
 createBtn.addEventListener("click", storePlanet);
 
+let orbitRadius;
+let radius;
+let direction;
+let planetColorRed;
+let planetColorGreen;
+let planetColorBlue;
+let theta;
+
 let previewArray = [];
 
 //=========MAIN CODE=========\\
@@ -30,7 +38,7 @@ let previewArray = [];
 function preload() {
   //load any external files here
   img = loadImage(
-    "images/night-sky-with-stars-stars-background_172933-69.avif"
+    "images/night-sky-with-stars-stars-background_172933-69.avif",
   );
 }
 /**
@@ -42,6 +50,55 @@ function setup() {
   canvas.parent("canvasContainer");
   //Set angle mode to degrees
   angleMode(DEGREES);
+}
+function createPreviewBtn() {
+  if (preview == false) {
+    preview = !preview;
+  } else {
+    preview = !preview;
+  }
+}
+
+function createPreview() {
+  previewBtn.value = "Exit Preview";
+  // console.log("Running"); //Console for debugging
+  orbitRadius = orbitalSlider.value;
+  radius = radiusSlider.value;
+  direction = spinDirection.value;
+
+  for (let e of environments) {
+    if (environmentSelect.value == e[0]) {
+      e[(1, 2, 3)]; // colour
+      planetColorRed = e[1];
+      planetColorGreen = e[2];
+      planetColorBlue = e[3];
+    }
+  }
+
+  fill(planetColorRed, planetColorGreen, planetColorBlue, 200);
+  circle(orbitRadius, 0, radius);
+
+  console.log(
+    orbitRadius,
+    radius,
+    direction,
+    planetColorRed,
+    planetColorGreen,
+    planetColorBlue,
+  );
+}
+
+function storePlanet() {
+  let newPlanet = new Planet(
+    (planetColorRed.value),
+    (planetColorGreen.value),
+    (planetColorBlue.value),
+    (orbitRadius.value),
+    (radius.value),
+    (direction.value),
+  );
+  planetsArray.push(newPlanet);
+  preview = false;
 }
 /**
  * Draws the main loop of the program.
@@ -62,7 +119,9 @@ function draw() {
   //Calls the function to create the sun
   newSun.draw();
   //Calls the function to create the planet
-  newPlanet.draw();
+  if (planetsArray.length >= 1) {
+    setupPlanet.draw();
+  }
   // for (let planet of planets) {
   //  planet.draw(); plaent.move(); planet.update();
   //}
@@ -80,49 +139,12 @@ function draw() {
  * Logs the mouse coordinates to the console when the mouse is clicked.
  * For debugging purposes.
  */
-mouseClicked = () => {
+// mouseClicked = () => {
 //   console.log(`Mouse X: ${mouseX.toFixed(3)}
 // Mouse Y: ${mouseY.toFixed(3)}`);
-console.log(previewArray);
-};
+// console.log(planetsArray);
+// };
 
 // on click what you want to do is:
 // let newPlanet = new Planet();
 // planets.push(newPlanet);
-
-function createPreviewBtn() {
-  if (preview == false) {
-    preview = !preview;
-  } else {
-    preview = !preview;
-  }
-}
-
-function createPreview() {
-  previewBtn.value = "Exit Preview";
-  // console.log("Running"); //Console for debugging
-  let orbitRadius = orbitalSlider.value;
-  let radius = radiusSlider.value;
-  let direction = spinDirection.value;
-  let planetColorRed;
-  let planetColorGreen;
-  let planetColorBlue;
-  for (let e of environments) {
-    if (environmentSelect.value == e[0]) {
-      e[(1, 2, 3)]; // colour
-      planetColorRed = e[1];
-      planetColorGreen = e[2];
-      planetColorBlue = e[3];
-    }
-  }
-
-  fill(planetColorRed, planetColorGreen, planetColorBlue, 200);
-  circle(orbitRadius, 0, radius);
-
-  // console.log(orbitRadius, radius, direction, planetColorRed,planetColorGreen,planetColorBlue)
-}
-
-function storePlanet(){
-  let newPlanet = new Planet()//, orbitRadius, radius, direction, planetColorRed, planetColorGreen, planetColorBlue, theta);
-  Planet.planetsArray.push(Planet);
-}

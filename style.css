@@ -62,3 +62,7 @@ h1 {
 .slider {
   width: 300px;
 }
+
+input{
+  margin: 10px;
+}
