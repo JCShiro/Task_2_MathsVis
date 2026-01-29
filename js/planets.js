@@ -35,7 +35,7 @@ class Planet {
       let theta;
       let x = cos(theta) * planetsArray[i].orbitRadius;
       let y = sin(theta) * planetsArray[i].orbitRadius;
-      if(planetsArray[i].direction == "right"){
+      if(planetsArray[i].direction.value == "right"){
         theta +=1;
       }else{
         theta -=1;
